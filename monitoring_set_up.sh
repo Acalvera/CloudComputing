@@ -14,8 +14,9 @@ sudo apt install -y docker.io docker-compose
 sudo systemctl enable docker
 sudo systemctl start docker
 
+# Installation of grafana + prometheus to monitor the resources of the server
 # Create a directory to save the set up configuration
-mkdir ~/grafana-monitoring && cd ~/grafana-monitoring
+mkdir /grafana-monitoring && cd /grafana-monitoring
 
 # Create and add the following configuration to "docker-compose.yml"
 echo "version: '3'
@@ -56,6 +57,31 @@ scrape_configs:
     static_configs:
       - targets: ['node-exporter:9100']
 " >prometheus.yml
+
+# Start the docker container
+sudo docker-compose up -d
+
+#Installation of portainer to manage the installed docker containers on the server
+# Create a directory to save the set up configuration
+mkdir /prometheus-docker-management && cd /prometheus-docker-management
+
+# Create and add the following configuration to "docker-compose.yml"
+echo "version: '3.8'
+
+services:
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  portainer_data:
+" >docker-compose.yml
 
 # Start the docker container
 sudo docker-compose up -d
