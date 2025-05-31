@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 # ------------------------------------------------------------------------------
 # File: cli_interface.sh
 # Author: Alejandro Calvera Tonin
 # Date: May 2025
-# Description: Script to launch a new instance on Chamaleon Cloud using the CLI
+# Description: Script to launch a new instance on Chameleon Cloud using the CLI
 #    interface and Openstack
 # ------------------------------------------------------------------------------
 
@@ -112,7 +112,7 @@ while true; do
 				continue
 			fi
 
-			# Chamaleon Cloud only has 6 available flavors
+			# Chameleon Cloud only has 6 available flavors
 			if [[ "$flavor" =~ ^[1-6]$ ]]; then
 				break
 			else
