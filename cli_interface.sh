@@ -323,16 +323,7 @@ while true; do
 				fi
 			done
 
-
 			if [[ "$valid" == true ]]; then
-				# Get the correspondent ID 
-				ip_id=$(echo "$floating_ips_list" | awk -F'|' -v fip="$ip" '
-				{
-					gsub(/^ +| +$/, "", $2);
-					gsub(/^ +| +$/, "", $1);
-					gsub(/^ +| +$/, "", $3);
-					if ($2 == fip && $3 == "None") print $1
-				}')
 				break
 			else 
 				echo "=====> Selected IP address is not valid."

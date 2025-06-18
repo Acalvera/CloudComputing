@@ -63,7 +63,7 @@ sudo docker-compose up -d
 
 #Installation of portainer to manage the installed docker containers on the server
 # Create a directory to save the set up configuration
-mkdir /prometheus-docker-management && cd /prometheus-docker-management
+mkdir /portainer-docker-management && cd /portainer-docker-management
 
 # Create and add the following configuration to "docker-compose.yml"
 echo "version: '3.8'
