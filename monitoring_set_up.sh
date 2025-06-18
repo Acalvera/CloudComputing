@@ -66,7 +66,7 @@ sudo docker-compose up -d
 mkdir /portainer-docker-management && cd /portainer-docker-management
 
 # Create and add the following configuration to "docker-compose.yml"
-echo "version: '3.8'
+echo "version: '3'
 
 services:
   portainer:
